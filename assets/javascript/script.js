@@ -16,6 +16,7 @@ function displayFood() {
         console.log(response);
 
         var results = response.data;
+        
 
         for (var i = 0; i < results.length; i++) {
 
@@ -41,9 +42,10 @@ function displayFood() {
             
                 if (state === "still") {
                   $(this).attr("src", results[i].images.fixed_height.url);
+                  console.log(results[i].images.fixed_height.url)
                   $(this).attr("data-state", "animate");
                 } else {
-                  $(this).attr("src", results[i].images.fixed_height_still.url);
+                  $(this).attr("src", $(this).images.fixed_height_still.url);
                   $(this).attr("data-state", "still");
                 }
               });
