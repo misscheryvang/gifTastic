@@ -36,19 +36,6 @@ function displayFood() {
 
             $("#gifs").append(foodDiv);
 
-            $(".divStyle").on("click", function() {
-        
-                var state = $(this).attr("data-state");
-            
-                if (state === "still") {
-                  $(this).attr("src", results[i].images.fixed_height.url);
-                  console.log(results[i].images.fixed_height.url)
-                  $(this).attr("data-state", "animate");
-                } else {
-                  $(this).attr("src", $(this).images.fixed_height_still.url);
-                  $(this).attr("data-state", "still");
-                }
-              });
         }
 
     });
@@ -96,6 +83,20 @@ $(document).on("click", ".food-btn", displayFood);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
+
+$(".divStyle").on("click", function() {
+        
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+      $(this).attr("src", $(this).images.fixed_height.url);
+      console.log($(this).images.fixed_height.url)
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).images.fixed_height_still.url);
+      $(this).attr("data-state", "still");
+    }
+  });
 
 
 
